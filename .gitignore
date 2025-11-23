@@ -1,0 +1,51 @@
+# -----------------------
+# Virtual environment
+# -----------------------
+venv/
+.env
+.env.*
+
+# -----------------------
+# Python cache files
+# -----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# -----------------------
+# Django migrations (optional to ignore)
+# -----------------------
+# Uncomment if you want to ignore migrations in version control
+# */migrations/*.py
+# */migrations/*.pyc
+
+# -----------------------
+# Django static and media files
+# -----------------------
+staticfiles/
+media/
+
+# -----------------------
+# Database
+# -----------------------
+*.sqlite3
+
+# -----------------------
+# Logs
+# -----------------------
+*.log
+
+# -----------------------
+# IDE / Editor files
+# -----------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+
+# -----------------------
+# OS generated files
+# -----------------------
+.DS_Store
+Thumbs.db
