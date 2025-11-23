@@ -10,7 +10,8 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False").lower() in ("true", "1", "yes")
 ALLOWED_HOSTS = [host.strip() for host in os.environ.get("ALLOWED_HOSTS", "").split(",") if host.strip()]
 
-
+MAILGUN_API_KEY = os.environ.get("MAILGUN_API_KEY")
+MAILGUN_DOMAIN = os.environ.get("MAILGUN_DOMAIN")
 
 # Application definition
 
@@ -21,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'anymail',
     'apps.inbound_email',
 ]
 
@@ -106,3 +108,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+ANYMAIL = {
+    "MAILGUN_API_KEY": os.environ.get("MAILGUN_API_KEY"),
+    "MAILGUN_SENDER_DOMAIN": os.environ.get("MAILGUN_DOMAIN"),
+}
+
+EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+
+
