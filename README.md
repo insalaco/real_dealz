@@ -1,5 +1,3 @@
-ngrok http 8000
-
 generate djano secret key
 `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"`
 
@@ -11,4 +9,14 @@ pip freeze > requirements.txt
 
 python manage.py poll_inbound_emails
 
-visit https://app.mailgun.com/mg/receiving/routes and paste route <ngrok url>/inbound_email/inbound/ also update .env allowed hosts with same url
+## NGROCK
+
+ngrok http 8000
+
+visit https://app.mailgun.com/mg/receiving/routes and paste ngrok url `<ngrok url>/inbound_email/inbound/`
+
+update .env allowed hosts to incude same ngrok url (no https://)
+
+## Subdomain to receive email
+
+inbound.followerfrenzy.com
