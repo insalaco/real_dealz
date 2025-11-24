@@ -36,19 +36,4 @@ class InboundEmail(models.Model):
         return f"{self.subject or '(No Subject)'} from {self.sender}"
 
 
-class EmailAttachment(models.Model):
-    """
-    Represents a single attachment from an InboundEmail, stored on S3.
-    """
-    email = models.ForeignKey(
-        InboundEmail,
-        related_name="attachments",
-        on_delete=models.CASCADE
-    )
-    filename = models.CharField(max_length=255)
-    s3_url = models.URLField()
-    content_type = models.CharField(max_length=255, null=True, blank=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.filename} ({self.email})"
